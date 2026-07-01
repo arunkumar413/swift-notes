@@ -1,24 +1,44 @@
-// Variable declartion without type annotation
+/*
+
+# Swift Notes
+
+*/
+
+/*
+
+### Variable Declaration and Data Types in Swift
+
+*/
 
 var name1 = "John Doe" // declaring a immutable variable of type String 
 let age1 = 30 // declaring a constant variable of type Int. Immutable and cannot be changed   
 
-// variable declaration with type annotation
+/*
+### Variable declaration with type annotation
+*/
 
 var name2: String = "John Doe" 
 var age2: Int = 30 // declaring a variable of type Int with type annotation
 
 
-// printing the values of the variables uisng interpolation
+/*
+### Printing the values of the variables uisng interpolation
+*/
+
+
 print("Name1: \(name1), Age: \(age1)")
 
 
-// Multiple variable declaration in a single line
+/*  
+### Multiple variable declaration in a single line
+
+*/
 var name3 = "John Doe", age3 = 30
 let firstName : String = "John", lastName : String  = "Doe" 
 
-
-// Data types:
+/*
+### Data types
+*/
 
 let isSwiftFun: Bool = true // Boolean data type
 let pi: Double = 3.14159 // Double data type
@@ -26,7 +46,11 @@ let e: Float = 2.71828 // Float data type
 let ch: Character = "A" // Character data type
 
 
-// Arrays
+/* 
+
+### Arrays
+
+*/
 
 var fruits: [String] = ["Apple", "Banana", "Cherry"] // Array of Strings
 var numbers: [Int] = [1, 2, 3, 4, 5] // Array of Integers
@@ -44,7 +68,9 @@ fruits.insert("Orange", at: 1) // inserting an element at a specific index
 fruits.count // getting the count of elements in the array
 fruits.isEmpty // checking if the array is empty
 
-// Loop through an array
+/* 
+### Loop through an array
+*/
 
 for fruit in fruits {
     print(fruit) // prints each fruit in the array
@@ -55,7 +81,9 @@ for (index, fruit) in fruits.enumerated() {
 }
 
 
-// Array slices
+/* 
+### Array slices
+*/
 
 let slice = fruits[1...2] // creating a slice of the array
 print(slice) // prints the slice of the array
@@ -72,8 +100,9 @@ for i in numbersSlice.indices {
     print(numbersSlice[i]) // prints each number in the slice
 }
 
-
-// 2d Arrays
+/*
+### 2d Arrays
+*/
 
 var grid: [[Int]] = [
     [1, 2, 3], 
@@ -89,10 +118,15 @@ for row in grid {
     print() // prints a new line after each row
 }
 
-// update 2d array value
+/*
+### Update 2d array value
+*/
    grid[0][0] = 10 // updating the value at row 0, column 0
 
-   // Array filter map and reduce
+
+/*   
+### Array filter map and reduce
+*/
 
    let scores = [85, 90, 78, 92, 88]
    let above80 = scores.filter { $0 > 80 } // filtering scores above 80
@@ -100,8 +134,9 @@ for row in grid {
     let totalScore = scores.reduce(0, +) // summing all scores
     let averageScore = Double(totalScore) / Double(scores.count) // calculating the average score   
 
-
-// search for an element in an array
+/*
+### search for an element in an array
+*/
 
    let searchElement = 92
    if let index = scores.firstIndex(of: searchElement) {
