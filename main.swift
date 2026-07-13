@@ -62,11 +62,11 @@ var array1 = [1, 2, 3, 4, 5] // Array of Integers without type annotation
 print(fruits) // prints the array of fruits
 print(fruits[0]) // prints the first element of the array
 
-fruts.append("Mango") // adding an element to the array
+fruits.append("Mango") // adding an element to the array
 fruits.remove(at: 1) // removing an element from the array
 fruits.insert("Orange", at: 1) // inserting an element at a specific index
-fruits.count // getting the count of elements in the array
-fruits.isEmpty // checking if the array is empty
+let fruitCount = fruits.count // getting the count of elements in the array
+let isFruitsEmpty = fruits.isEmpty // checking if the array is empty
 
 /* 
 ### Loop through an array
@@ -83,6 +83,8 @@ for (index, fruit) in fruits.enumerated() {
 
 /* 
 ### Array slices
+
+A slice is a view into a portion of an array. It does not copy the elements, but rather provides a way to access a subset of the array's elements. Slices are useful when you want to work with a part of an array without creating a new array.
 */
 
 let slice = fruits[1...2] // creating a slice of the array
@@ -99,6 +101,16 @@ let numbersSlice4 = numbers[1...3] // creating a slice from index 1 to 3 (3 is i
 for i in numbersSlice.indices {
     print(numbersSlice[i]) // prints each number in the slice
 }
+
+
+let names = ["Alice", "Bob", "Charlie", "David", "Eve"]
+var sliceNames = names[1...3] // creating a slice of the array
+print(sliceNames) // prints the slice of the array
+// sliceNames[0] = "Arun"  This will not work and will give an error because sliceNames is a slice and not a mutable array. To modify the original array, you can use the following approach:
+var mutableNames = Array(sliceNames) // creating a mutable copy of the slice
+mutableNames[0] = "Arun" // modifying the first element of the mutable copy
+print(mutableNames) // prints the modified mutable copy
+
 
 /*
 ### 2d Arrays
@@ -145,5 +157,314 @@ for row in grid {
        print("\(searchElement) not found in the array")
    }
 
-   scores.contains(100) // checking if the array contains a specific element
+   var contains100 = scores.contains(100) // checking if the array contains a specific element
+
+
+/*
+
+### Conditions
+
+*/
+
+let marks = 85
+if marks >= 90 {
+    print("Grade: A")
+} else if marks >= 80 {
+    print("Grade: B")
+} else if marks >= 70 {
+    print("Grade: C")
+} else {
+    print("Grade: D")
+}
+
+// Ternary operator
+let grade = marks >= 90 ? "A" : marks >= 80 ? "B" : "C"
+
+// Multiple conditions using logical operators
+
+let isPassed = marks >= 40 && marks <= 100 // checking if marks are in the passing range
+let isFailed = marks < 40 || marks > 100 // checking if marks are in the failing range
+
+
+
+
+
+
+/*
+
+### Switch Statement
+
+*/
+
+let gradeSwitch = "B"
+switch gradeSwitch {
+case "A":
+    print("Excellent")
+case "B":
+    print("Good")
+case "C":
+    print("Average")
+default:
+    print("Invalid grade")
+}
+
+
+/*
+
+### Switch using range
+
+*/
+
+
+let gradeRange = 85
+switch gradeRange {
+case 90...100:
+    print("Grade: A") // both 90 and 100 are included in the range
+case 80..<90:
+    print("Grade: B") // 80 is included in the range but 90 is not included
+case 70..<80:
+    print("Grade: C") // 70 is included in the range but 80 is not included
+default:
+    print("Grade: D")
+}
+
+
+
+/*
+
+### While Loop
+
+*/
+
+    var count = 1
+    while count <= 5 {
+        print("Count: \(count)")
+        count += 1
+    }
+
+/*
+  ### Repeat-While Loop
+*/
+
+    var repeatCount = 1
+    repeat {
+        print("Repeat Count: \(repeatCount)")
+        repeatCount += 1
+    } while repeatCount <= 5
+
+
+
+
+/*
+
+### For Loop
+
+*/
+
+    for i in 1...5 {
+        print("For Loop Count: \(i)")
+    }
+
+  // Iterating through an array using for loop
+    let colors = ["Red", "Green", "Blue"]
+    for color in colors {
+        print("Color: \(color)")
+    }   
+
+
+    // Enumerating through an array using for loop
+    for (index, color) in colors.enumerated() {
+        print("Color at index \(index): \(color)")
+    }
+
+
+    /*
+
+    ### Collections
+
+    In Swift, collections are used to store multiple values in a single variable. The most commonly used collection types are Arrays, Sets, and Dictionaries.
+
+    */
+
+    // Arrays
+    var fruitsCollection: [String] = ["Apple", "Banana", "Cherry"]
+
+    // Dictionaries
+    var person: [String: Any] = ["name": "John Doe", "age": 30]
+    print(person["name"] ?? "No name") // prints the name from the dictionary
+
+    // Sets
+    var uniqueNumbers: Set<Int> = [1, 2, 3, 4, 5]
+    uniqueNumbers.insert(3) // trying to insert a duplicate value
+    print(uniqueNumbers) // prints the set, showing that duplicates are not allowed
+
+
+/*
+
+### Functions
+
+*/
+
+func greet(name: String) -> String {
+    let greetingMessage = "Hello, \(name)!"
+    return greetingMessage
+}
+
+// function with multiple parameters
+func addNumbers(a: Int, b: Int) -> Int {
+    return a + b
+}
+
+
+/*
+
+### Enums
+
+*/
+
+enum Direction {
+    case north
+    case south
+    case east
+    case west
+}
+
+// The above can also be written as:
+
+enum Direction2 {
+    case north, south, east, west
+}
+
+let d = Direction.north
+let d2: Direction = .north // The above can also be written as:let d: Direction = .north
+
+
+switch d {
+case .north:
+    print("Heading North")
+case .south:
+    print("Heading South")
+case .east:
+    print("Heading East")
+case .west:
+    print("Heading West")
+}   
+
+
+enum Planet: Int {
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
+}
+
+
+let earth = Planet.earth
+let mars: Planet = .mars //  The above can also be written as: let mars: Planet = .mars
+print("Earth is planet number \(earth.rawValue)") // prints the raw value of the enum
+
+/*
+Tuples
+
+*/
+
+let http404Error = (404, "Not Found") // a tuple with an Int and a String
+
+let (statusCode, statusMessage) = http404Error // decomposing the tuple into two constants
+
+print("The status code is \(statusCode)") // prints the status code
+print("The status message is \(statusMessage)") // prints the status message
+
+
+let userInfo = (name: "John Doe", age: 30) // a tuple with named elements
+print("User name is \(userInfo.name)") // prints the name from the tuple
+print("User age is \(userInfo.age)") // prints the age from the tuple
+
+
+let userInfo2: (name: String, age: Int) = ("Jane Doe", 25) // a tuple with named elements and type annotation
+print("User name is \(userInfo2.name)") // prints the name from the tuple
+print("User age is \(userInfo2.age)") // prints the age from the tuple
+
+
+/*
+
+### Structs
+
+*/
+
+struct Person {
+    var name: String
+    var age: Int
+    
+    func greet() -> String {
+        return "Hello, my name is \(name) and I am \(age) years old."
+    }
+}
+
+var person1 = Person(name: "John Doe", age: 30)
+print(person1.greet()) // prints the greeting message from the struct
+print(person1.name) // prints the name from the struct
+print(person1.age) // prints the age from the struct
+
+person1.name = "Jane Doe" // modifying the name of the person
+person1.age = 25 // modifying the age of the person
+print(person1.greet()) // prints the updated greeting message from the struct
+
+
+
+
+/*
+
+### Classes
+
+*/
+
+class Animal {
+    var name: String
+    var age: Int
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+    
+    func makeSound() -> String {
+        return "Some generic animal sound"
+    }
+}
+
+let animal1 = Animal(name: "Dog", age: 5)
+print(animal1.makeSound()) // prints the sound made by the animal
+
+
+
+// Observers
+
+
+class PersonWithObserver {
+    var name: String {
+        willSet {
+            print("About to set name to \(newValue)")
+        }
+        didSet {
+            print("Changed name from \(oldValue) to \(name)")
+        }
+    }
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+// override class methods
+
+class Dog: Animal {
+    override func makeSound() -> String {
+        return "Woof!"
+    }
+}
+
+
+let dog1 = Dog(name: "Buddy", age: 3)
+print(dog1.makeSound()) // prints "Woof!"
+
+
+
 
