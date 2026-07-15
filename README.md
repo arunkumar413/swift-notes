@@ -3,7 +3,7 @@
 ### Variable Declaration and Data Types in Swift
 
 ```swift
-var name1 = "John Doe" // declaring a immutable variable of type String 
+var name1 = "John Doe" // declaring a mutable variable of type String 
 let age1 = 30 // declaring a constant variable of type Int. Immutable and cannot be changed
 ```
 
@@ -396,4 +396,16 @@ class PersonWithObserver {
         self.name = name
     }
 }
+
+// override class methods
+
+class Dog: Animal {
+    override func makeSound() -> String {
+        return "Woof!"
+    }
+}
+
+
+let dog1 = Dog(name: "Buddy", age: 3)
+print(dog1.makeSound()) // prints "Woof!"
 ```

@@ -10,7 +10,7 @@
 
 */
 
-var name1 = "John Doe" // declaring a immutable variable of type String 
+var name1 = "John Doe" // declaring a mutable variable of type String 
 let age1 = 30 // declaring a constant variable of type Int. Immutable and cannot be changed   
 
 /*
